@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog.dao.BloggerDao">
+
+    <sql id="BloggerColumns">
+        id, username, password, profile, nickname, sign, imagename
+    </sql>
+
+    <select id="findBlogger" resultType="Blogger">
+        SELECT <include refid="BloggerColumns" /> FROM t_blogger WHERE username = #{userName}
+    </select>
+</mapper>
